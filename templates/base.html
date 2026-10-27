@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AI-дайджест для клиентов ЛОР-врача | Информационные онлайн-консультации{% endblock %}</title>
+    <meta name="description" content="Конверсионный AI-дайджест для клиентов ЛОР-врача, проводящего информационные онлайн консультации. Карточки с полезными материалами.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="bg-glow bg-glow--1"></div>
+    <div class="bg-glow bg-glow--2"></div>
+    <div class="bg-grid"></div>
+    
+    <header class="header">
+        <div class="container header__inner">
+            <a class="logo" href="{{ url_for('index') }}">
+                <div class="logo__mark">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="14" cy="14" r="13" stroke="url(#g)" stroke-width="2"/>
+                        <path d="M9 14c0-2.761 2.239-5 5-5s5 2.239 5 5-2.239 5-5 5" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="14" cy="14" r="2" fill="url(#g)"/>
+                        <defs>
+                            <linearGradient id="g" x1="4" y1="4" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#7C3FFF"/>
+                                <stop offset="0.5" stop-color="#22D3EE"/>
+                                <stop offset="1" stop-color="#22C55E"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="logo__text">
+                    <span class="logo__title">ЛОР-АИ Дайджест</span>
+                    <span class="logo__subtitle">Информационные онлайн-консультации</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a class="nav__link" href="{{ url_for('index') }}#digest">Дайджест</a>
+                <a class="nav__link" href="{{ url_for('index') }}#about">О консультации</a>
+            </nav>
+            <button class="nav__toggle" id="navToggle" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav__mobile" id="navMobile">
+            <a class="nav__link" href="{{ url_for('index') }}#digest">Дайджест</a>
+            <a class="nav__link" href="{{ url_for('index') }}#about">О консультации</a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <div class="logo">
+                    <div class="logo__mark">
+                        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="14" cy="14" r="13" stroke="url(#g2)" stroke-width="2"/>
+                            <path d="M9 14c0-2.761 2.239-5 5-5s5 2.239 5 5-2.239 5-5 5" stroke="url(#g2)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="14" cy="14" r="2" fill="url(#g2)"/>
+                            <defs>
+                                <linearGradient id="g2" x1="4" y1="4" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#7C3FFF"/>
+                                    <stop offset="0.5" stop-color="#22D3EE"/>
+                                    <stop offset="1" stop-color="#22C55E"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="logo__text">
+                        <span class="logo__title">ЛОР-АИ Дайджест</span>
+                        <span class="logo__subtitle">Информационные онлайн-консультации</span>
+                    </div>
+                </div>
+                <p class="footer__text">Сайт носит информационный характер. Не является заменой очной консультации и не заменяет экстренную медицинскую помощь.</p>
+            </div>
+            <div class="footer__copy">
+                <span>© 2025 ЛОР-АИ Дайджест</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
